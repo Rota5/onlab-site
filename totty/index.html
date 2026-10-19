@@ -186,7 +186,7 @@
           if (!firstLoad) { firstLoad = now; return; }
           // 最初の読み込み直後の二度読みは送信とみなさない
           if (now - firstLoad < 2000) return;
-          form.style.height = '460px';
+          form.style.height = '380px';
           form.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       })();
