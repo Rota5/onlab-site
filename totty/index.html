@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Totty — 撮りたい感じから、カメラの設定を</title>
+<meta name="description" content="撮りたいものと雰囲気を選ぶと、まず試してみるカメラの設定と撮影のコツが出るiPhoneアプリ。いま開発中です。">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Totty — 撮りたい感じから、カメラの設定を">
+<meta property="og:description" content="撮りたいものと雰囲気を選ぶと、まず試してみるカメラの設定と撮影のコツが出るiPhoneアプリ。いま開発中です。">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<style>
+  :root {
+    --ink: #1d1d1f;
+    --sub: #6e6e73;
+    --line: #EFD9CE;
+    --paper: #FDF4EF;
+    --soft: #F7E4DA;
+    --blue: #007aff;
+    --blue-tint: #eef5ff;
+    --amber-tint: #fdf3e1;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+    font-feature-settings: "palt";
+  }
+  main { max-width: 640px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  section:first-child { border-top: none; }
+  h1, h2, h3 { line-height: 1.45; margin: 0; }
+  h2 { font-size: 22px; margin-bottom: 20px; }
+  p { margin: 0 0 1em; }
+  .wordmark { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 700; letter-spacing: .02em; padding-top: 28px; }
+  .wordmark img { width: 48px; height: 48px; border-radius: 22.5%; border: 1px solid var(--line); }
+
+  /* 1. 冒頭 */
+  .hero { padding-top: 40px; border-top: none; }
+  .hero h1 { font-size: 27px; font-weight: 700; }
+  .nb { display: inline-block; }
+  .hero .but { font-size: 20px; color: var(--sub); margin-top: 18px; font-weight: 600; }
+
+  /* 2. Tottyとは */
+  .answer { font-size: 19px; }
+  .answer strong { color: var(--blue); font-weight: 700; }
+
+  /* 3. 使い方 */
+  .steps { display: grid; gap: 36px; margin-top: 8px; }
+  .step { display: grid; gap: 14px; }
+  .step-head { display: flex; gap: 12px; align-items: baseline; }
+  .num {
+    flex: none; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--blue); color: #fff; font-size: 15px; font-weight: 700;
+    display: grid; place-items: center; transform: translateY(3px);
+  }
+  .step h3 { font-size: 18px; }
+  .step p { color: var(--sub); font-size: 15px; margin: 4px 0 0; }
+  .shot {
+    display: block; width: 100%; max-width: 300px; height: auto; margin: 0 auto;
+    border-radius: 28px; border: 1px solid var(--line);
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  }
+  @media (min-width: 600px) {
+    .step { grid-template-columns: 1fr 260px; align-items: center; gap: 28px; }
+    .shot { max-width: 260px; }
+  }
+
+  /* 4. こんな人 */
+  ul.for { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  ul.for li {
+    background: var(--soft); border-radius: 12px; padding: 12px 16px 12px 44px; position: relative;
+  }
+  ul.for li::before {
+    content: ""; position: absolute; left: 18px; top: 50%; width: 10px; height: 10px;
+    margin-top: -5px; border-radius: 50%; background: var(--blue);
+  }
+
+  /* 5. 登録 */
+  .signup .lead { margin-bottom: 8px; }
+  .note { color: var(--sub); font-size: 14px; }
+  .form-box { margin-top: 24px; }
+  .form-box iframe { width: 100%; border: 0; min-height: 1400px; }
+  .draft {
+    background: var(--blue-tint); border-radius: 16px; padding: 20px;
+    font-size: 15px; line-height: 1.7;
+  }
+  .draft h3 { font-size: 15px; margin: 18px 0 4px; }
+  .draft h3:first-child { margin-top: 0; }
+  .draft .req { color: var(--blue); font-size: 13px; font-weight: 700; margin-left: 6px; }
+  .draft .opt { color: var(--sub); font-size: 13px; margin-left: 6px; }
+  .draft-banner {
+    background: var(--amber-tint); border-radius: 10px; padding: 10px 14px;
+    font-size: 13px; margin-bottom: 16px;
+  }
+  .privacy { margin-top: 20px; }
+
+  footer { padding: 40px 0 56px; color: var(--sub); font-size: 13px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="wordmark"><img src="img/icon.png" width="256" height="256" alt="">Totty</div>
+
+  <!-- 1. 冒頭の悩み・共感 -->
+  <section class="hero">
+    <h1>カメラは楽しい。<br>でも設定がわからず、<span class="nb">いい写真が撮れない。</span></h1>
+    <p class="but">でも、設定を勉強するほどでもない。</p>
+  </section>
+
+  <!-- 2. Tottyとは何か -->
+  <section>
+    <p class="answer">Tottyは、<strong>撮りたいもの</strong>と<strong>雰囲気</strong>を選ぶと、まず試してみるカメラの設定と、撮影のコツを教えてくれるiPhoneアプリ。</p>
+    <p>カメラの用語を覚えなくても大丈夫。カメラのどこを触ればいいかも、絵でわかります。</p>
+  </section>
+
+  <!-- 3. 使い方 -->
+  <section>
+    <h2>使い方</h2>
+    <div class="steps">
+      <div class="step">
+        <div>
+          <div class="step-head"><span class="num">1</span><h3>なに撮る？ どんな感じに撮りたい？</h3></div>
+          <p>カフェ、旅、人物…。撮りたいものを選んで、写真を見ながら雰囲気を選びます。</p>
+        </div>
+        <img class="shot" src="img/choose.jpg" width="460" height="1000" alt="撮りたいものにカフェを選び、雰囲気の写真が6枚並んでいる画面">
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-head"><span class="num">2</span><h3>設定と撮影のコツが出る</h3></div>
+          <p>まず試してみる設定が、番号順に並びます。光の向きや立ち位置など、構えながら気をつけることも。</p>
+        </div>
+        <img class="shot" src="img/settings.jpg" width="460" height="1000" alt="「あたたかくて、落ち着いたカフェの一枚」の設定が番号順に並んでいる画面">
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-head"><span class="num">3</span><h3>カメラのどこを触るかも</h3></div>
+          <p>その設定がカメラのどのボタンにあるか、絵で見られます。</p>
+        </div>
+        <img class="shot" src="img/camera.jpg" width="460" height="1000" alt="カメラの背面の絵に、触るボタンが青く示されている画面">
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. こんな人向け -->
+  <section>
+    <h2>こんな人に</h2>
+    <ul class="for">
+      <li>ミラーレスや一眼を買ったけれど、オート中心</li>
+      <li>もう少し、いい感じに撮りたい</li>
+      <li>設定は、よく分からない</li>
+      <li>でも、本格的に勉強するほどではない</li>
+    </ul>
+  </section>
+
+  <!-- 5. 開発中＋登録 -->
+  <section class="signup" id="signup">
+    <h2>Tottyは、いま開発中です</h2>
+    <p class="lead">公開やテストの案内を受け取りたい方は、こちらから登録してください。</p>
+    <p class="note">いまはSony α6000で試しています。ほかのカメラをお使いの方も、ぜひ教えてください。</p>
+
+    <div class="form-box">
+      <!-- 登録フォーム：Googleフォーム（onlab2026@gmail.com「Totty｜公開・テストのご案内」、2026-10-19 作成）。
+           回答はonlab2026のスプレッドシートに保存、新しい回答はonlab2026にメール通知。
+           高さはフォームの長さに合わせた固定値。質問を足したら height を見直す -->
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe2UqeMXhdNmtIu_AeT9VDfXFOWJKru7m6TSB7Opuazr4EDmQ/viewform?embedded=true"
+              height="2100" loading="lazy" title="Tottyの公開・テストのご案内 登録フォーム">読み込んでいます…</iframe>
+      <p class="note">フォームが表示されないときは、<a href="https://docs.google.com/forms/d/e/1FAIpQLSe2UqeMXhdNmtIu_AeT9VDfXFOWJKru7m6TSB7Opuazr4EDmQ/viewform">こちらから開いてください</a>。</p>
+    </div>
+
+    <p class="note privacy">いただいたメールアドレスは、Tottyの公開やテストのご案内にだけ使います。ほかの目的には使わず、第三者に渡すこともありません。案内が不要になったら、届いたメールに返信するだけで止められます。</p>
+  </section>
+
+  <footer>Totty / On Lab</footer>
+
+</main>
+</body>
+</html>
