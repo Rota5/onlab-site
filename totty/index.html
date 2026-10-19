@@ -87,7 +87,7 @@
   .signup .lead { margin-bottom: 8px; }
   .note { color: var(--sub); font-size: 14px; }
   .form-box { margin-top: 24px; }
-  .form-box iframe { width: 100%; border: 0; min-height: 1400px; }
+  .form-box iframe { display: block; width: 100%; border: 0; margin-top: 12px; transition: height .3s ease; }
   .draft {
     background: var(--blue-tint); border-radius: 16px; padding: 20px;
     font-size: 15px; line-height: 1.7;
@@ -168,13 +168,29 @@
     <p class="note">いまはSony α6000で試しています。ほかのカメラをお使いの方も、ぜひ教えてください。</p>
 
     <div class="form-box">
+      <p class="note">フォームが表示されないときは、<a href="https://docs.google.com/forms/d/e/1FAIpQLSe2UqeMXhdNmtIu_AeT9VDfXFOWJKru7m6TSB7Opuazr4EDmQ/viewform">こちらから開いてください</a>。</p>
       <!-- 登録フォーム：Googleフォーム（onlab2026@gmail.com「Totty｜公開・テストのご案内」、2026-10-19 作成）。
            回答はonlab2026のスプレッドシートに保存、新しい回答はonlab2026にメール通知。
-           高さはフォームの長さに合わせた固定値。質問を足したら height を見直す -->
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe2UqeMXhdNmtIu_AeT9VDfXFOWJKru7m6TSB7Opuazr4EDmQ/viewform?embedded=true"
-              height="2100" loading="lazy" title="Tottyの公開・テストのご案内 登録フォーム">読み込んでいます…</iframe>
-      <p class="note">フォームが表示されないときは、<a href="https://docs.google.com/forms/d/e/1FAIpQLSe2UqeMXhdNmtIu_AeT9VDfXFOWJKru7m6TSB7Opuazr4EDmQ/viewform">こちらから開いてください</a>。</p>
+           高さはフォームの長さに合わせた固定値。質問を足したら height を見直す。
+           送信するとフォームの中身が「ありがとう」だけになり、下が空白で間延びする（10/19 涼さんがiPhoneで確認）。
+           埋め込み先のページの高さは外から測れないので、iframe が2回目に読み込まれた（＝送信後の画面に変わった）ときに縮める -->
+      <iframe id="signup-form" src="https://docs.google.com/forms/d/e/1FAIpQLSe2UqeMXhdNmtIu_AeT9VDfXFOWJKru7m6TSB7Opuazr4EDmQ/viewform?embedded=true"
+              height="2100" title="Tottyの公開・テストのご案内 登録フォーム">読み込んでいます…</iframe>
     </div>
+    <script>
+      (function () {
+        var form = document.getElementById('signup-form');
+        var firstLoad = 0;
+        form.addEventListener('load', function () {
+          var now = Date.now();
+          if (!firstLoad) { firstLoad = now; return; }
+          // 最初の読み込み直後の二度読みは送信とみなさない
+          if (now - firstLoad < 2000) return;
+          form.style.height = '460px';
+          form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      })();
+    </script>
 
     <p class="note privacy">いただいたメールアドレスは、Tottyの公開やテストのご案内にだけ使います。ほかの目的には使わず、第三者に渡すこともありません。案内が不要になったら、届いたメールに返信するだけで止められます。</p>
   </section>
