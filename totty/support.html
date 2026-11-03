@@ -36,6 +36,8 @@
   .nb { display: inline-block; }
   h3::before { content: "・"; }
   footer { margin-top: 48px; padding: 32px 0 48px; color: var(--sub); font-size: 13px; border-top: 1px solid var(--line); }
+  footer p, footer nav { margin: 0; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 6px; }
   footer a { color: var(--sub); }
 </style>
 </head>
@@ -65,7 +67,10 @@
   <h3>個人情報は送られますか？</h3>
   <p><span class="nb">送られません。</span><span class="nb">Tottyはインターネットと通信せず、</span><span class="nb">設定は端末の中にだけ保存します。</span><span class="nb">詳しくは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</span></p>
 
-  <footer>Totty / OnLab　<a href="privacy.html">プライバシーポリシー</a></footer>
+  <footer>
+    <p class="owner">Totty / OnLab（オンラボ）</p>
+    <nav class="links"><a href="./">Tottyについて</a><a href="support.html">サポート</a><a href="privacy.html">プライバシーポリシー</a></nav>
+  </footer>
 </main>
 </body>
 </html>

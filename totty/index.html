@@ -103,6 +103,9 @@
   .privacy { margin-top: 20px; }
 
   footer { padding: 40px 0 56px; color: var(--sub); font-size: 13px; border-top: 1px solid var(--line); }
+  footer p, footer nav { margin: 0; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 6px; }
+  footer a { color: var(--sub); }
 </style>
 </head>
 <body>
@@ -195,7 +198,10 @@
     <p class="note privacy">登録はGoogleフォームで受け付けています。いただいたメールアドレスは、Tottyに関するご案内やご連絡に使い、第三者に販売・提供することはありません。案内が不要になったら、届いたメールに返信するだけで止められます。くわしくは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
   </section>
 
-  <footer>Totty / OnLab（オンラボ）</footer>
+  <footer>
+    <p class="owner">Totty / OnLab（オンラボ）</p>
+    <nav class="links"><a href="./">Tottyについて</a><a href="support.html">サポート</a><a href="privacy.html">プライバシーポリシー</a></nav>
+  </footer>
 
 </main>
 </body>
