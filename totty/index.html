@@ -4,10 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Totty — 撮りたい感じから、カメラの設定を</title>
-<meta name="description" content="撮りたいものと雰囲気を選ぶと、まず試してみるカメラの設定と撮影のコツが出るiPhoneアプリ。いま開発中です。">
-<meta name="robots" content="noindex">
+<meta name="description" content="撮りたいものと雰囲気を選ぶと、まず試してみるカメラの設定と撮影のコツが出るiPhoneアプリ。App Storeで公開中です。">
 <meta property="og:title" content="Totty — 撮りたい感じから、カメラの設定を">
-<meta property="og:description" content="撮りたいものと雰囲気を選ぶと、まず試してみるカメラの設定と撮影のコツが出るiPhoneアプリ。いま開発中です。">
+<meta property="og:description" content="撮りたいものと雰囲気を選ぶと、まず試してみるカメラの設定と撮影のコツが出るiPhoneアプリ。App Storeで公開中です。">
 <meta property="og:type" content="website">
 <link rel="icon" href="img/icon.png">
 <link rel="apple-touch-icon" href="img/icon.png">
@@ -85,6 +84,13 @@
 
   /* 5. 登録 */
   .signup .lead { margin-bottom: 8px; }
+  .store-btn {
+    display: inline-block; margin: 4px 0 14px; padding: 12px 26px;
+    background: var(--blue); color: #fff; border-radius: 999px;
+    font-size: 17px; font-weight: 700; text-decoration: none;
+  }
+  .store-btn:active { opacity: .8; }
+  .signup .camera { margin-top: 28px; }
   .note { color: var(--sub); font-size: 14px; }
   .form-box { margin-top: 24px; }
   .form-box iframe { display: block; width: 100%; border: 0; margin-top: 12px; transition: height .3s ease; }
@@ -164,21 +170,22 @@
     </ul>
   </section>
 
-  <!-- 5. 開発中＋登録 -->
+  <!-- 5. 公開＋登録（2026-11-08 公開に合わせて書き換え） -->
   <section class="signup" id="signup">
-    <h2>Tottyは、いま開発中です</h2>
-    <p class="lead">公開やテストの案内を受け取りたい方は、こちらから登録してください。</p>
-    <p class="note">いまはSony α6000で試しています。ほかのカメラをお使いの方も、ぜひ教えてください。</p>
+    <h2>TottyをApp Storeで公開しました</h2>
+    <a class="store-btn" href="https://apps.apple.com/app/totty/id6814162223">App Storeで見る</a>
+    <p class="note">2026年中は無料です。2027年から有料にする予定です。</p>
+    <p class="lead camera">いまはSony α6000に対応しています。<br>ほかのカメラをお使いの方は、<span class="nb">ぜひ教えてください。</span><br><span class="nb">お使いのカメラに合う</span><span class="nb">Tottyを、つくっていきます。</span></p>
 
     <div class="form-box">
       <p class="note">フォームが表示されないときは、<a href="https://docs.google.com/forms/d/e/1FAIpQLSe2UqeMXhdNmtIu_AeT9VDfXFOWJKru7m6TSB7Opuazr4EDmQ/viewform">こちらから開いてください</a>。</p>
-      <!-- 登録フォーム：Googleフォーム（onlab2026@gmail.com「Totty｜公開・テストのご案内」、2026-10-19 作成）。
+      <!-- 登録フォーム：Googleフォーム（onlab2026@gmail.com「Totty｜公開・テストのご案内」、2026-10-19 作成。2026-11-08「my Totty｜自分のカメラでTottyを使いたい方へ」に改名）。
            回答はonlab2026のスプレッドシートに保存、新しい回答はonlab2026にメール通知。
            高さはフォームの長さに合わせた固定値。質問を足したら height を見直す。
            送信するとフォームの中身が「ありがとう」だけになり、下が空白で間延びする（10/19 涼さんがiPhoneで確認）。
            埋め込み先のページの高さは外から測れないので、iframe が2回目に読み込まれた（＝送信後の画面に変わった）ときに縮める -->
       <iframe id="signup-form" src="https://docs.google.com/forms/d/e/1FAIpQLSe2UqeMXhdNmtIu_AeT9VDfXFOWJKru7m6TSB7Opuazr4EDmQ/viewform?embedded=true"
-              height="2100" title="Tottyの公開・テストのご案内 登録フォーム">読み込んでいます…</iframe>
+              height="2100" title="my Totty｜自分のカメラでTottyを使いたい方へ 登録フォーム">読み込んでいます…</iframe>
     </div>
     <script>
       (function () {
