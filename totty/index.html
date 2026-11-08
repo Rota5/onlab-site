@@ -42,7 +42,8 @@
   .wordmark img { width: 48px; height: 48px; border-radius: 22.5%; border: 1px solid var(--line); }
 
   /* 1. 冒頭 */
-  .hero { padding-top: 40px; border-top: none; }
+  .hero { padding-top: 40px; padding-bottom: 36px; border-top: none; }
+  .hero + section { padding-top: 36px; }
   .hero h1 { font-size: 27px; font-weight: 700; }
   .nb { display: inline-block; }
   .hero .but { font-size: 20px; color: var(--sub); margin-top: 18px; font-weight: 600; }
@@ -91,6 +92,9 @@
   }
   .store-btn:active { opacity: .8; }
   .signup .camera { margin-top: 28px; }
+  .get { margin-top: 22px; }
+  .get .store-btn { margin: 0 0 8px; }
+  .get p { margin: 0; }
   .note { color: var(--sub); font-size: 14px; }
   .form-box { margin-top: 24px; }
   .form-box iframe { display: block; width: 100%; border: 0; margin-top: 12px; transition: height .3s ease; }
@@ -129,6 +133,12 @@
   <section>
     <p class="answer">Tottyは、<strong>撮りたいもの</strong>と<strong>雰囲気</strong>を選ぶと、まず試してみるカメラの設定と、撮影のコツを教えてくれるiPhoneアプリ。</p>
     <p>カメラの用語を覚えなくても大丈夫。カメラのどこを触ればいいかも、絵でわかります。</p>
+    <!-- 入口2つ（2026-11-08 イケハヤAIの提案）：α6000の人はすぐApp Storeへ、ほかのカメラの人は下の登録フォームへ -->
+    <div class="get">
+      <a class="store-btn" href="https://apps.apple.com/app/totty/id6814162223">App Storeで見る</a>
+      <p class="note">いまはSony α6000用。2026年中は無料です。</p>
+      <p class="note">ほかのカメラをお使いの方は、<a href="#signup">こちらから教えてください</a>。</p>
+    </div>
   </section>
 
   <!-- 3. 使い方 -->
